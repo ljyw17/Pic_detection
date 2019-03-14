@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>基于EAST文本检测器的自然场景文本检测系统</title>
+<style type="text/css">
+/* 让页面所有元素的padding和margin都设置为0 */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{ text-align:center;}
+.pane1{
+    position: relative;
+    margin:10px auto;
+    width:660px;
+    height:100px;
+}
+.pane2{
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+}
+.pane3{
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    margin: -50px 0 0 0;
+    width:60%;
+    height:300px;
+    text-align:left;
+}
+/* text-shadow设置阴影使文字更好看，letter-spacing设置字符间距 */
+.pane2 h1 { color:white; text-shadow: 0px 10px 8px #CDC673; letter-spacing:1px;text-align:center;margin-bottom:50px; }
+/*css，border属性设置边框线粗细以及颜色，border-radius设置边框的圆角角度 */
+div a{
+    display:block;
+    height:40px;
+    text-align:center;
+}
+div a:link,div a:visited{
+    text-decoration:none;
+    color:white;
+}
+{#}这边因为想点击前后一样所以放在一起写#}
+div a:hover{
+background-color: #BDBDBD;
+}
+</style>
+</head>
+<body background="static/images/background.jpg" style=" background-repeat:no-repeat; background-size:100% 100%; background-attachment: fixed;">
+<div style="color:white"class="pane1">
+        <h1>基于EAST文本检测器的自然场景文本检测系统</h1>
+</div>
+<div class="pane2" style="text-align:center;">
+    <h1>选择图片上传方式</h1>
+    <a href="crawldetect"><h2>通过url链接上传</h2></a>
+    <br>
+    <a href="localdetect"><h2>通过本地上传</h2></a>
+</div>
+<div style="color:white"class="pane3">
+        <h4>本地上传支持的图片类型有: *.png,*.jpeg,*.jpg,*.jpe,*.jfif,*.bmp,*.dib,*.gif,*.tiff,*.tif</h4>
+		<br/>
+		<h4>提示：如果是拍摄的照片，尽量不要有文字扭曲旋转等现象。尽量保持图片背景单一，无其他物体。尽量保持图片清晰，图片识别的准确率和图片清晰度有关系的。</h4>
+        <br/>
+    <h4>使用流程：</h4><h4>url上传：在文字检测区域的文本框中键入url链接，接着点击“提交检测”，就能在“原图片”区域和“检测结果”区域下分别看到url链接中的原图片以及检测处理后的结果。</h4><h4>本地上传：在文字区域检测框中选择上传图片并点击“上传”按钮，在“第二步：预览”的下方将可以预览到上传的图片，接着可以继续重复上述操作上传多幅图片（最多十张），图片上传完毕后点击“提交检测”按钮，在“第三步：检测结果”下方可以依次看到文字检测的最终结果。</h4>
+</div>
+</body>
+</html>

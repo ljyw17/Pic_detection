@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>基于EAST文本检测器的自然场景文本检测系统</title>
+<style>
+/* 让页面所有元素的padding和margin都设置为0 */ 
+*{margin:0;padding:0;box-sizing:border-box;}
+body{ text-align:center;}
+.pane0{
+    position: relative;
+    margin:10px auto;
+    width:660px;
+    height:100px;
+}
+div a{
+    display:block;
+    height:40px;
+    text-align:center;
+}
+div a:link,div a:visited{
+    text-decoration:none;
+    color:white;
+}
+.pane1{ 
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+}
+.pane2{ 
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    margin: -150px 0 0 -150px;
+    width:450px;
+    height:450px;
+}
+.pane3{ 
+    position: absolute;
+    top: 45%;
+    left: 75%;
+    margin: -150px 0 0 -150px;
+    width:450px;
+    height:450px;
+}
+.title1{ 
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+}
+.title2{ 
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    margin: -150px 0 0 -150px;
+    width:450px;
+    height:450px;
+}
+.title3{ 
+    position: absolute;
+    top: 30%;
+    left: 75%;
+    margin: -150px 0 0 -150px;
+    width:450px;
+    height:450px;
+}
+/* text-shadow设置阴影使文字更好看，letter-spacing设置字符间距 */ 
+.pane1 h1 { color:white; text-shadow: 0px 10px 8px #CDC673; letter-spacing:2px;text-align:center;margin-bottom:20px; }
+/*css，border属性设置边框线粗细以及颜色，border-radius设置边框的圆角角度 */
+.pane2 img{
+    width:100%;
+    height:auto;
+}
+.pane3 img{
+    width:100%;
+    height:auto;
+}
+input{
+    padding:10px;
+    width:100%;
+    color:white;
+    margin-bottom:10px;
+    background-color:#555555;
+    border: 1px solid black;
+    border-radius:4px;
+    letter-spacing:2px;
+}
+form button{
+    width:100%;
+    padding:10px;
+    background-color:#CDC673;
+    border:1px solid black;
+    border-radius:4px;
+    cursor:pointer; 
+}
+</style>
+</head>
+<body background="static/images/background.jpg" style=" background-repeat:no-repeat; background-size:100% 100%; background-attachment: fixed;">
+<div style="color:white"class="pane0">
+<a href="home"><h1>基于EAST文本检测器的自然场景文本检测系统</h1></a>
+<h3>通过url链接上传</h3>
+</div>
+<div class="title1" style="color:white">
+  <h3>键入url链接并提交检测</h3>
+</div>
+<div class="title2" style="color:white">
+  <h3>原图片</h3>
+</div>
+<div class="title3" style="color:white">
+  <h3>检测结果</h3>
+</div>
+<div class="pane1">
+  <h1>自然场景文本检测</h1>
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="text"value="在这里输入url链接" name="url" id="uploadImg"  accept="*.html"
+onfocus="javascript:if(this.value=='在这里输入url链接')this.value='';"onBlur="if(value==''){value='在这里输入url链接'}">
+<button type="submit">提交检测</button>
+</form>
+</div>
+<div class="pane2" id = "result">
+{% for img in imgs %}
+{% if forloop.counter == 1 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 3 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 5 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 7 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 9 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 11 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 13 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 15 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 17 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 19 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% endfor %}
+</div>
+<div class="pane3">
+{% for img in imgs %}
+{% if forloop.counter == 2 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 4 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 6 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 8 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 10 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 12 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 14 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 16 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 18 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% if forloop.counter == 20 %}
+<img src="{{ img.img.url }}" id="showImg"/>
+{% endif %}
+{% endfor %}
+</div>
+</body>
+</html>
